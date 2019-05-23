@@ -17,7 +17,7 @@ import { defaultCmsContentConfig } from '@spartacus/storefront';
     StorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: 'https://10.59.167.176:9002',
+          baseUrl: 'https://cds-1905-k8s-eu.prod.argonauts.cd.ydev.hybris.com:9002',
           prefix: '/rest/v2/'
         }
       },

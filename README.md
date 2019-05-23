@@ -7,9 +7,6 @@ Angular CLI: v7.3.7 or later, < v8.0.0
 node.js: v10 or later, < v12
 yarn: v1.15 or later
 
-## Connect to EC
-`sshuttle -r $user@argonauts.jumpbox.yaas.io:1235 10.59.167.0/24`
-
 ## Install
 `yarn install`
 
@@ -23,7 +20,6 @@ To change, use the following impex:
 INSERT_UPDATE OAuthClientDetails;clientId[unique=true]    ;resourceIds       ;scope        ;authorizedGrantTypes                                            ;authorities             ;clientSecret    ;registeredRedirectUri
                                 ;client-side              ;hybris            ;basic        ;implicit,client_credentials                                     ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_implicit_callback;
                                 ;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
-
 ```
 
 
