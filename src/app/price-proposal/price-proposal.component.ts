@@ -11,6 +11,7 @@ export class PriceProposalComponent implements OnInit {
   priceComponent;
   productDetailOutlets = ProductDetailOutlets;
   newPrice: Number;
+  priceAccepted: boolean;
   constructor(private service: KymaService) {
   }
 
@@ -27,7 +28,7 @@ export class PriceProposalComponent implements OnInit {
     priceSuggestion.suggestedPrice = this.newPrice;
     this.service.suggestPrice(priceSuggestion).subscribe(
       accepted => {
-      console.log(accepted);
+      this.priceAccepted = accepted;
     },
     error => console.error(error));
   }
