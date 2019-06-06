@@ -1,32 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-
-import { StorefrontModule } from '@spartacus/storefront';
 import { ConfigModule } from '@spartacus/core';
-import { translations } from '@spartacus/storefront';
-import { defaultCmsContentConfig } from '@spartacus/storefront';
-
+import { translations, defaultCmsContentConfig, StorefrontModule } from '@spartacus/storefront';
+import { PriceProposalComponent } from './price-proposal/price-proposal.component';
+import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { KymaInterceptor } from './interceptors/kyma.interceptor';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PriceProposalComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     StorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: 'https://cds-1905-k8s-eu.prod.argonauts.cd.ydev.hybris.com:9002',
-          prefix: '/rest/v2/'
+          baseUrl: 'https://api.cqz1m-softwarea1-d44-public.model-t.cc.commerce.ondemand.com',
         }
       },
-      authentication: {
-        client_id: 'mobile_android',
-        client_secret: 'secret'
-      },
+      // authentication: {
+      //   client_id: 'mobile_android',
+      //   client_secret: 'secret'
+      // },
       site: {
-        baseSite: 'electronics'
+        baseSite: 'electronics-spa'
       },
       i18n: {
         resources: translations
@@ -34,7 +34,7 @@ import { defaultCmsContentConfig } from '@spartacus/storefront';
     }),
     ConfigModule.withConfigFactory(defaultCmsContentConfig)
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: KymaInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
