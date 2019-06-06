@@ -7,5 +7,15 @@
     <input [(ngModel)]='newPrice' id='newPrice' aria-label="New Price" aria-multiline="false" autocapitalize="off" autocorrect="off"
       class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="text"
       placeholder="New Price" autocomplete="off" />
+
+    <button (click)='registerPrice()' class="btn btn-primary btn-block" type="button">
+      Register price
+    </button>
+    <input [(ngModel)]='subscribedPrice' id='subscribedPrice' aria-label="Subscribed Price" aria-multiline="false" autocapitalize="off" autocorrect="off"
+      class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="text"
+      placeholder="Subscribed Price" autocomplete="off" />
+    <input [(ngModel)]='emailAddress' id='emailAddress' aria-label="email address" aria-multiline="false" autocapitalize="off" autocorrect="off"
+      class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="text"
+      placeholder="Email address" autocomplete="off" />
   </div>
 </ng-template>
