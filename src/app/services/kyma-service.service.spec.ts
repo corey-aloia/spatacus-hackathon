@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { KymaServiceService } from './kyma-service.service';
+import { KymaService } from './kyma-service.service';
 
 describe('KymaServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: KymaServiceService = TestBed.get(KymaServiceService);
+    const service: KymaService = TestBed.get(KymaService);
     expect(service).toBeTruthy();
   });
 });

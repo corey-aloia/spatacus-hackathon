@@ -7,10 +7,12 @@ import { PriceProposalComponent } from './price-proposal/price-proposal.componen
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { KymaInterceptor } from './interceptors/kyma.interceptor';
+import { PriceComponent } from './price/price.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PriceProposalComponent
+    PriceProposalComponent,
+    PriceComponent
   ],
   imports: [
     BrowserModule,

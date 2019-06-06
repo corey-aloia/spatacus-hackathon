@@ -1,7 +1,6 @@
 export class PriceSuggestionResponse {
-    accepted: boolean;
+    priceAccepted: boolean;
 }
-
 
 export class PriceSuggestion {
     productCode: Number;

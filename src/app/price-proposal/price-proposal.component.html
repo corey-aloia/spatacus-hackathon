@@ -1,11 +1,26 @@
-<ng-template #priceProposal [cxOutletRef]='productDetailOutlets.ADDTOCART' cxOutletPos='after' let-priceComponent >
-  <div *ngIf='priceComponent.hasStock'>
+<ng-template #priceProposal [cxOutletRef]='productDetailOutlets.ADDTOCART' cxOutletPos='after' let-priceComponent>
+  <div *ngIf='priceComponent.hasStock && !priceAccepted && !displaySubscribe && !subscribed'>
     <!-- {{inspect(priceComponent)}} -->
     <button (click)='suggestPrice(priceComponent.product.code)' class="btn btn-primary btn-block" type="button">
       Suggest Price
     </button>
-    <input [(ngModel)]='newPrice' id='newPrice' aria-label="New Price" aria-multiline="false" autocapitalize="off" autocorrect="off"
-      class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="number" min="0.01" step="0.01"
-      placeholder="New Price" autocomplete="off" />
+    <input [(ngModel)]='newPrice' id='newPrice' aria-label="New Price" aria-multiline="false" autocapitalize="off"
+      autocorrect="off" class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched"
+      role="combobox" type="number" min="0.01" step="0.01" placeholder="New Price" autocomplete="off" />
+  </div>
+  <div *ngIf='displaySubscribe && !subscribed'>
+    <button (click)='registerPrice(priceComponent.product.code)' class="btn btn-primary btn-block" type="button">
+      Get notified when price drops below ${{newPrice}}
+    </button>
+    <input [(ngModel)]='emailAddress' id='emailAddress' aria-label="email address" aria-multiline="false"
+      autocapitalize="off" autocorrect="off"
+      class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="text"
+      placeholder="Email address" autocomplete="off" />
+  </div>
+  <div *ngIf='priceAccepted && !subscribed' class="price">
+    Your price has been accepted! New price: ${{newPrice}}
+  </div>
+  <div *ngIf='subscribed' class="price">
+      You will receive an email to {{emailAddress}} when the price drops below ${{newPrice}}
   </div>
 </ng-template>
