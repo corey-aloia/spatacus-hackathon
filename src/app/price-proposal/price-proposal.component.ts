@@ -8,6 +8,7 @@ import { PriceSuggestion } from './price-suggestion';
   styleUrls: ['./price-proposal.component.scss']
 })
 export class PriceProposalComponent implements OnInit {
+  priceComponent;
   productDetailOutlets = ProductDetailOutlets;
   newPrice: Number;
   constructor(private service: KymaService) {
@@ -20,9 +21,9 @@ export class PriceProposalComponent implements OnInit {
     console.log(obj);
   }
 
-  suggestPrice() {
+  suggestPrice(productCode) {
     const priceSuggestion = new PriceSuggestion();
-    priceSuggestion.productCode = 1432722;
+    priceSuggestion.productCode = productCode;
     priceSuggestion.suggestedPrice = this.newPrice;
     this.service.suggestPrice(priceSuggestion).subscribe(
       accepted => {

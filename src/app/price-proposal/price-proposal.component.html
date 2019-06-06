@@ -1,11 +1,11 @@
-<ng-template #priceProposal [cxOutletRef]='productDetailOutlets.ADDTOCART' cxOutletPos='after' let-priceComponent>
-  <!-- {{ priceComponent.product.price.formattedValue }} -->
+<ng-template #priceProposal [cxOutletRef]='productDetailOutlets.ADDTOCART' cxOutletPos='after' let-priceComponent >
   <div>
-    <button (click)='suggestPrice()' class="btn btn-primary btn-block" type="button">
+    <!-- {{inspect(priceComponent)}} -->
+    <button (click)='suggestPrice(priceComponent.product.code)' class="btn btn-primary btn-block" type="button">
       Suggest Price
     </button>
     <input [(ngModel)]='newPrice' id='newPrice' aria-label="New Price" aria-multiline="false" autocapitalize="off" autocorrect="off"
-      class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="text"
+      class="cx-input form-control dropdown-menu-toggle ng-pristine ng-valid ng-touched" role="combobox" type="number" min="0.01" step="0.01"
       placeholder="New Price" autocomplete="off" />
   </div>
 </ng-template>
